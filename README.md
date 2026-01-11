@@ -1,4 +1,4 @@
-# polymarket-api
+# poly-money-ts-api
 
 A TypeScript/JavaScript client library for accessing Polymarket's Gamma API and Data API, compatible with both web browsers and Node.js.
 
@@ -12,37 +12,59 @@ A TypeScript/JavaScript client library for accessing Polymarket's Gamma API and 
 
 ## Installation
 
-### From GitHub (recommended)
+### 方式一：npm link（推荐用于本地开发）
+
+适合需要同时修改库代码和使用库的场景：
 
 ```bash
-# Using npm
-npm install github:YOUR_USERNAME/polymarket-api
+# 1. 克隆仓库
+git clone git@github.com:cronrpc/poly-moeny-ts-api.git
+cd poly-moeny-ts-api
 
-# Using yarn
-yarn add github:YOUR_USERNAME/polymarket-api
+# 2. 安装依赖并构建
+npm install
+npm run build
 
-# Using pnpm
-pnpm add github:YOUR_USERNAME/polymarket-api
+# 3. 创建全局链接
+npm link
 
-# Specific branch or tag
-npm install github:YOUR_USERNAME/polymarket-api#main
-npm install github:YOUR_USERNAME/polymarket-api#v0.1.0
+# 4. 在你的项目中使用链接
+cd /path/to/your-project
+npm link poly-money-ts-api
 ```
 
-### From local path
+**开发工作流**：修改库代码后，只需在库目录运行 `npm run build`，你的项目会自动获得最新代码。
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/polymarket-api.git
+# 解除链接
+npm unlink poly-money-ts-api
+```
 
-# Install from local path
-npm install ./polymarket-api
+### 方式二：从 GitHub 安装
+
+```bash
+# 使用 npm
+npm install github:cronrpc/poly-moeny-ts-api
+
+# 使用 yarn
+yarn add github:cronrpc/poly-moeny-ts-api
+
+# 指定分支或标签
+npm install github:cronrpc/poly-moeny-ts-api#main
+npm install github:cronrpc/poly-moeny-ts-api#v0.1.0
+```
+
+### 方式三：本地路径安装
+
+```bash
+# 克隆仓库后，从本地路径安装
+npm install ../poly-moeny-ts-api
 ```
 
 ## Quick Start
 
 ```typescript
-import { PolymarketClient } from 'polymarket-api';
+import { PolymarketClient } from 'poly-money-ts-api';
 
 // Create client with default config
 const client = new PolymarketClient();
@@ -60,7 +82,7 @@ const results = await client.gamma.search.search('bitcoin');
 ## Configuration
 
 ```typescript
-import { PolymarketClient, PolymarketConfig } from 'polymarket-api';
+import { PolymarketClient, PolymarketConfig } from 'poly-money-ts-api';
 
 const config: PolymarketConfig = {
   // API Base URLs (defaults shown)
@@ -135,7 +157,7 @@ import {
   RateLimitError,
   NetworkError,
   TimeoutError,
-} from 'polymarket-api';
+} from 'poly-money-ts-api';
 
 const client = new PolymarketClient();
 
@@ -157,7 +179,7 @@ try {
 ## Logging
 
 ```typescript
-import { PolymarketClient, setupLogging } from 'polymarket-api';
+import { PolymarketClient, setupLogging } from 'poly-money-ts-api';
 
 // Option 1: Via config
 const client = new PolymarketClient({ logLevel: 'debug' });
@@ -172,7 +194,7 @@ The library works in modern browsers that support the Fetch API:
 
 ```html
 <script type="module">
-  import { PolymarketClient } from './node_modules/polymarket-api/dist/esm/index.js';
+  import { PolymarketClient } from './node_modules/poly-money-ts-api/dist/esm/index.js';
   
   const client = new PolymarketClient();
   const events = await client.gamma.events.getList({ limit: 5 });
@@ -183,7 +205,7 @@ The library works in modern browsers that support the Fetch API:
 Or with a bundler like Vite, Webpack, or esbuild:
 
 ```typescript
-import { PolymarketClient } from 'polymarket-api';
+import { PolymarketClient } from 'poly-money-ts-api';
 
 const client = new PolymarketClient();
 ```

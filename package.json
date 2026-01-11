@@ -1,5 +1,5 @@
 {
-  "name": "polymarket-api",
+  "name": "poly-money-ts-api",
   "version": "0.1.0",
   "description": "A TypeScript/JavaScript client library for accessing Polymarket's Gamma API and Data API",
   "main": "./dist/cjs/index.js",
@@ -36,12 +36,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR_USERNAME/polymarket-api.git"
+    "url": "git+https://github.com/cronrpc/poly-moeny-ts-api.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/polymarket-api/issues"
+    "url": "https://github.com/cronrpc/poly-moeny-ts-api/issues"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/polymarket-api#readme",
+  "homepage": "https://github.com/cronrpc/poly-moeny-ts-api#readme",
   "devDependencies": {
     "@types/node": "^20.10.0",
     "ts-node": "^10.9.2",
