@@ -1,5 +1,7 @@
 # poly-money-ts-api
 
+[中文文档](./README_CN.md)
+
 A TypeScript/JavaScript client library for accessing Polymarket's Gamma API and Data API, compatible with both web browsers and Node.js.
 
 ## Features
@@ -12,52 +14,52 @@ A TypeScript/JavaScript client library for accessing Polymarket's Gamma API and 
 
 ## Installation
 
-### 方式一：npm link（推荐用于本地开发）
+### Option 1: npm link (Recommended for local development)
 
-适合需要同时修改库代码和使用库的场景：
+Best for scenarios where you need to modify the library code while using it:
 
 ```bash
-# 1. 克隆仓库
+# 1. Clone the repository
 git clone git@github.com:cronrpc/poly-moeny-ts-api.git
 cd poly-moeny-ts-api
 
-# 2. 安装依赖并构建
+# 2. Install dependencies and build
 npm install
 npm run build
 
-# 3. 创建全局链接
+# 3. Create global link
 npm link
 
-# 4. 在你的项目中使用链接
+# 4. Use the link in your project
 cd /path/to/your-project
 npm link poly-money-ts-api
 ```
 
-**开发工作流**：修改库代码后，只需在库目录运行 `npm run build`，你的项目会自动获得最新代码。
+**Development workflow**: After modifying library code, just run `npm run build` in the library directory, and your project will automatically get the latest code.
 
 ```bash
-# 解除链接
+# To unlink
 npm unlink poly-money-ts-api
 ```
 
-### 方式二：从 GitHub 安装
+### Option 2: Install from GitHub
 
 ```bash
-# 使用 npm
+# Using npm
 npm install github:cronrpc/poly-moeny-ts-api
 
-# 使用 yarn
+# Using yarn
 yarn add github:cronrpc/poly-moeny-ts-api
 
-# 指定分支或标签
+# Specific branch or tag
 npm install github:cronrpc/poly-moeny-ts-api#main
 npm install github:cronrpc/poly-moeny-ts-api#v0.1.0
 ```
 
-### 方式三：本地路径安装
+### Option 3: Local path installation
 
 ```bash
-# 克隆仓库后，从本地路径安装
+# After cloning, install from local path
 npm install ../poly-moeny-ts-api
 ```
 
