@@ -78,13 +78,18 @@ export class CoreAPI {
      * ```typescript
      * const activity = await client.data.core.getActivity({
      *   user: '0x1234...',
-     *   type: 'TRADE',
+     *   type: ['TRADE', 'MERGE'],  // supports array of types
      *   sortBy: 'TIMESTAMP',
      *   sortDirection: 'DESC'
      * });
      * ```
      */
     async getActivity(params?: ActivityParams): Promise<Activity[]> {
+        // Handle type array by joining to comma-separated string
+        if (params?.type && Array.isArray(params.type)) {
+            const processedParams = { ...params, type: params.type.join(',') };
+            return this.client.get('/activity', processedParams) as Promise<Activity[]>;
+        }
         return this.client.get('/activity', params) as Promise<Activity[]>;
     }
 

@@ -222,7 +222,8 @@ export interface ActivityParams {
     eventId?: string;
     limit?: number;
     offset?: number;
-    type?: ActivityType;
+    /** Single type or comma-separated list of types */
+    type?: ActivityType | ActivityType[];
     start?: number;
     end?: number;
     sortBy?: ActivitySortBy;
