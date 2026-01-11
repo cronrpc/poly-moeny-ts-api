@@ -98,18 +98,19 @@ export interface Comment {
     author?: Profile;
 }
 
-/** Profile object */
+/** Profile object from /public-profile endpoint */
 export interface Profile {
-    id: string;
-    address: string;
-    name?: string;
-    username?: string;
-    bio?: string;
+    createdAt?: string;
+    proxyWallet: string;
     profileImage?: string;
     profileImageOptimized?: string;
+    displayUsernamePublic?: boolean;
+    bio?: string;
+    pseudonym?: string;
+    name?: string;
+    users?: { id: string; creator: boolean; mod: boolean }[];
+    verifiedBadge?: boolean;
     bannerImage?: string;
-    createdAt?: string;
-    updatedAt?: string;
 }
 
 /** Search result */
