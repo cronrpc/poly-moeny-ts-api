@@ -1,0 +1,53 @@
+{
+  "name": "polymarket-api",
+  "version": "0.1.0",
+  "description": "A TypeScript/JavaScript client library for accessing Polymarket's Gamma API and Data API",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "clean": "rm -rf dist",
+    "demo": "npx ts-node --transpile-only demo.ts",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "polymarket",
+    "api",
+    "prediction-market",
+    "crypto",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/polymarket-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/polymarket-api/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/polymarket-api#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
