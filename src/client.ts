@@ -8,6 +8,7 @@ import { PolymarketConfig, resolveConfig, ResolvedConfig } from './config';
 import { HttpClient } from './http';
 import { GammaAPI } from './gamma';
 import { DataAPI } from './data';
+import { UserPnLAPI } from './pnl';
 
 /**
  * Unified Polymarket client for all APIs.
@@ -49,6 +50,9 @@ export class PolymarketClient {
     /** Data API (positions, trades, activity, leaderboard) */
     public readonly data: DataAPI;
 
+    /** User PnL API (portfolio value history) */
+    public readonly pnl: UserPnLAPI;
+
     private readonly _gammaHttp: HttpClient;
     private readonly _dataHttp: HttpClient;
 
@@ -63,9 +67,11 @@ export class PolymarketClient {
         // Create HTTP clients for each API
         this._gammaHttp = new HttpClient(this.config, this.config.gammaBaseUrl);
         this._dataHttp = new HttpClient(this.config, this.config.dataBaseUrl);
+        const pnlHttp = new HttpClient(this.config, this.config.pnlBaseUrl);
 
         // Initialize API accessors
         this.gamma = new GammaAPI(this._gammaHttp);
         this.data = new DataAPI(this._dataHttp);
+        this.pnl = new UserPnLAPI(pnlHttp);
     }
 }

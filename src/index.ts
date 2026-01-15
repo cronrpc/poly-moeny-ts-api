@@ -59,6 +59,14 @@ export { HttpClient } from './http';
 // API Classes
 export { GammaAPI } from './gamma';
 export { DataAPI } from './data';
+export {
+    UserPnLAPI,
+    PnLDataPoint,
+    PnLInterval,
+    PnLFidelity,
+    UserPnLParams,
+    PnL_PRESETS,
+} from './pnl';
 
 // All types
 export * from './types';

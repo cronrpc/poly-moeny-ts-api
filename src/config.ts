@@ -8,6 +8,9 @@ export interface PolymarketConfig {
     /** Base URL for Data API (positions/trades/activity). Default: "https://data-api.polymarket.com" */
     dataBaseUrl?: string;
 
+    /** Base URL for User PnL API (portfolio value history). Default: "https://user-pnl-api.polymarket.com" */
+    pnlBaseUrl?: string;
+
     /** Request timeout in milliseconds. Default: 30000 */
     timeout?: number;
 
@@ -30,6 +33,7 @@ export interface PolymarketConfig {
 export interface ResolvedConfig {
     gammaBaseUrl: string;
     dataBaseUrl: string;
+    pnlBaseUrl: string;
     timeout: number;
     retryCount: number;
     retryDelay: number;
@@ -41,6 +45,7 @@ export interface ResolvedConfig {
 export const DEFAULT_CONFIG: ResolvedConfig = {
     gammaBaseUrl: 'https://gamma-api.polymarket.com',
     dataBaseUrl: 'https://data-api.polymarket.com',
+    pnlBaseUrl: 'https://user-pnl-api.polymarket.com',
     timeout: 30000,
     retryCount: 3,
     retryDelay: 1000,
@@ -55,6 +60,7 @@ export function resolveConfig(config?: PolymarketConfig): ResolvedConfig {
     return {
         gammaBaseUrl: config?.gammaBaseUrl ?? DEFAULT_CONFIG.gammaBaseUrl,
         dataBaseUrl: config?.dataBaseUrl ?? DEFAULT_CONFIG.dataBaseUrl,
+        pnlBaseUrl: config?.pnlBaseUrl ?? DEFAULT_CONFIG.pnlBaseUrl,
         timeout: config?.timeout ?? DEFAULT_CONFIG.timeout,
         retryCount: config?.retryCount ?? DEFAULT_CONFIG.retryCount,
         retryDelay: config?.retryDelay ?? DEFAULT_CONFIG.retryDelay,
